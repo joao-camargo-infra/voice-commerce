@@ -1,4 +1,4 @@
-Existem 4 arquivos js na pasta. Para utilizá-los é necessário colocar o nome do arquivo que deseja utilizar na linha 19 do index.html.
+Existem 4 arquivos js no projeto. Para utilizá-los é necessário colocar o nome do arquivo que deseja utilizar na linha 19 do index.html.
 
 padrão.js é apenas uma tradução das entradas e saídas do código original.
 
