@@ -1,21 +1,36 @@
 <html>
   <head>
     <title>Speech Recognition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <h3>Produtos</h3>
-    <ul id="produtos">
-      <li class="pSVerde">Sapato verde</li>
-      <li class="pSVermelho">Sapato vermelho</li>
-      <li class="pSAzul">Sapato azul</li>
-    </ul>
-    <h3>Carrinho</h3>
-    <ol id="carrinho"></ol>
-
-    <button type="button" id="btnSpeech">
-      <img src="microphone.png" height="50px;" />
-    </button>
-
+    <div class="carrinho">
+      <h3>Produtos</h3>
+      <ul id="produtos">
+        <li class="pSVerde">Sapato verde</li>
+        <li class="pSVermelho">Sapato vermelho</li>
+        <li class="pSAzul">Sapato azul</li>
+      </ul>
+      <h3>Carrinho</h3>
+      <ol id="carrinho"></ol>
+      <h3>Favoritos</h3>
+      <ul id="favoritos"></ul>
+      <div class="form-search">
+        <form action="/action_page.php">
+          <div class="input-container">
+            <input type="text" id="pesquisa" class="textbox" name="pesquisa">
+            <button type="button" id="btn-speech">
+            <img id="mic" src="microphone.png"/>
+            </button>
+          </div>
+        </div>
+        <div class="div-voice">
+          <img class="mic-voice" src="microphone.png"/>
+          <input type="text" id="voice-textbox" name="pesquisa" readonly>
+        </div>
+    </div>
     <script src="carrinho.js" charset="utf-8"></script>
   </body>
 </html>
