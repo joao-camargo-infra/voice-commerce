@@ -1,5 +1,6 @@
 const startBtn = document.getElementById("btn-speech");
 const carrinho = document.getElementById("carrinho");
+const animation1 = document.getElementById("animate");
 const favoritos = document.getElementById("favoritos");
 const result = document.createElement("div");
 const processing = document.getElementById("voice-textbox");
@@ -51,9 +52,11 @@ if (typeof SpeechRecognition === undefined) {
   toggleBtn = () => {
     if (listening) {
       recognition.stop();
+      animation.style.visibility = "hidden";
       stopSearch();
     } else {
       recognition.start();
+      animation.style.visibility = "visible";
       voiceSearch();
       speechSynthesis.speak(new SpeechSynthesisUtterance("O que deseja?"));
     }

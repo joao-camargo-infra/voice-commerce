@@ -5,6 +5,16 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
+  <style>
+    .dot {
+      height: 40px;
+      width: 40px;
+      position: relative;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+    }
+  </style>
   <body>
     <div class="carrinho">
       <h3>Produtos</h3>
@@ -31,6 +41,52 @@
           <input type="text" id="voice-textbox" name="pesquisa" readonly>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id ="animate", style="text-align:center">
+      <span id ="a", class="dot"></span>
+      <span id ="b", class="dot"></span>
+      <span id ="c", class="dot"></span>
+    </div>
+    <script>
+      const animation = document.getElementById("animate");
+      animation.style.visibility = "hidden";
+
+      const diferenca = 5;
+      const speed = 1;
+      const base = 30;
+      const variacao = 30;
+
+      let a = document.getElementById('a');
+      let b = document.getElementById('b');
+      let c = document.getElementById('c');
+
+      let contA = 0;
+      let contB = diferenca;
+      let contC = 2*diferenca;
+
+      function step() {
+        a.style.top = (variacao*Math.sin((contA*Math.PI)/base)) + 'px';
+        b.style.top = (variacao*Math.sin((contB*Math.PI)/base)) + 'px';
+        c.style.top = (variacao*Math.sin((contC*Math.PI)/base)) + 'px';
+        
+        contA += speed;
+        contB += speed;
+        contC += speed;
+
+        window.requestAnimationFrame(step);
+      }
+
+      window.requestAnimationFrame(step);
+    </script>
+  </div>
     <script src="carrinho.js" charset="utf-8"></script>
   </body>
 </html>
