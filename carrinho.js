@@ -1,6 +1,6 @@
 const startBtn = document.getElementById("btn-speech");
 const carrinho = document.getElementById("carrinho");
-const animation1 = document.getElementById("animate");
+const animation = document.getElementById("animationContainer");
 const favoritos = document.getElementById("favoritos");
 const result = document.createElement("div");
 const processing = document.getElementById("voice-textbox");
