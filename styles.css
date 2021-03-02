@@ -54,13 +54,14 @@ html {
 }
 
 .div-voice {
+  visibility: hidden;
   border-radius: 100px / 50px;
   position: absolute;
   width: 100%;
   height: 200px;
   z-index: 15;
   top: 50%;
-  left: 36%;
+  left: 40%;
   margin: -100px 0 0 -150px;
   background: white;
   opacity: 0;
@@ -70,13 +71,16 @@ html {
 .div-voice.is-active {
   opacity: 1;
   transition: opacity 100ms linear;
+  visibility: visible;
 }
 
 .mic-voice {
+  position: relative;
   display: block;
   margin: 30 auto;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
+  bottom: 10%;
 }
 
 #voice-textbox {
@@ -84,4 +88,14 @@ html {
   margin: 40 auto;
   text-align: center;
   border: 0px;
+  position: relative;
+  bottom: 17%;
+}
+
+.close-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  left: 85%;
+  top: 10%;
 }
