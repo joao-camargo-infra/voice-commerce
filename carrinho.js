@@ -46,6 +46,7 @@ if (typeof SpeechRecognition === undefined) {
       speechSynthesis.speak(new SpeechSynthesisUtterance(response));
     } else {
       processing.value = `${text}`;
+      limitePalavras(text);
     }
   };
   let listening = false;
@@ -178,4 +179,23 @@ function delCarrinho(prod, classname) {
     response = `${prod} removido do carrinho`;
   }
   return response;
+}
+
+//Esse função utiliza um loop para contar a quantidade de palavras
+//Esse loop foi usado porque eu não achei nenhuma função nativa para
+//contar caractéres/palavras e as funções já implementadas (tipo split)
+//são muito custosas em processamento
+function limitePalavras(words){
+  const tamanhoMaximo = 7;
+
+  let contador = 1;
+
+  let i;
+  for (i = 0; i < words.length; i++){
+    if (words.charAt(i) == ' ')
+      contador++;
+  }
+
+  if (contador >= tamanhoMaximo)
+    toggleBtn();
 }
