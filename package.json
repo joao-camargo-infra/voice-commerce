@@ -1,0 +1,26 @@
+{
+  "name": "voice-commerce",
+  "version": "1.0.0",
+  "description": "Existem 4 arquivos js no projeto. Para utilizá-los é necessário colocar o nome do arquivo que deseja utilizar na linha 19 do index.html.",
+  "main": "main.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jquery": "^3.6.0",
+    "mysql": "^2.18.1",
+    "prettier": "^2.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joao-camargo-infra/voice-commerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joao-camargo-infra/voice-commerce/issues"
+  },
+  "homepage": "https://github.com/joao-camargo-infra/voice-commerce#readme"
+}
