@@ -1,0 +1,114 @@
+#mic {
+  height: 15px;
+  margin-top: 5px;
+}
+body,
+html {
+  height: 100%;
+}
+
+@media (min-width: 950px) {
+  #btn-speech {
+    visibility: hidden;
+  }
+}
+
+.input-container {
+  width: 250px;
+  border: 1px solid #a9a9a9;
+  display: inline-block;
+  border-radius: 25px;
+}
+.input-container input:focus,
+.input-container input:active {
+  outline: none;
+}
+.input-container input {
+  width: 80%;
+  border: none;
+}
+
+.input-container button {
+  float: right;
+}
+
+/* button Speech */
+#btn-speech {
+  background-color: transparent;
+  border: none;
+}
+
+.textbox {
+  border-radius: 25px;
+}
+
+#oval {
+  width: 200px;
+  height: 100px;
+  background: red;
+  border-radius: 100px / 50px;
+}
+
+.carrinho {
+  margin: 20px;
+}
+
+.div-voice {
+  visibility: hidden;
+  border-radius: 100px / 50px;
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  z-index: 15;
+  top: 50%;
+  left: 40%;
+  margin: -100px 0 0 -150px;
+  background: white;
+  opacity: 0;
+  transition: opacity 100ms linear;
+}
+
+.div-voice.is-active {
+  opacity: 1;
+  transition: opacity 100ms linear;
+  visibility: visible;
+}
+
+.mic-voice {
+  position: relative;
+  display: block;
+  margin: 30 auto;
+  height: 40px;
+  width: 40px;
+  bottom: 10%;
+}
+
+#voice-textbox {
+  display: block;
+  margin: 40 auto;
+  text-align: center;
+  border: 0px;
+  position: relative;
+  bottom: 17%;
+}
+
+.close-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  left: 85%;
+  top: 10%;
+}
+
+.dot {
+  height: 5px;
+  width: 5px;
+  position: relative;
+  background-color: #494949;
+  border-radius: 50%;
+  display: inline-block;
+}
+#animationContainer {
+  position: relative;
+  bottom: 27%;
+}

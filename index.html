@@ -2,8 +2,7 @@
   <head>
     <title>Speech Recognition</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" href="animationStyle.css">
+    <link rel="stylesheet" type="text/css" href="styleSheets/styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
@@ -23,20 +22,20 @@
           <div class="input-container">
             <input type="text" id="pesquisa" class="textbox" name="pesquisa">
             <button type="button" id="btn-speech">
-            <img id="mic" src="../microphone.png"/>
+            <img id="mic" src="images/microphone.png"/>
             </button>
           </div>
         </div>
         <div class="div-voice">
-          <img class="close-icon" src="close.png" onclick="stopSearch()">
-          <img class="mic-voice" src="microphone.png"/>
+          <img class="close-icon" src="images/close.png" onclick="stopSearch()">
+          <img class="mic-voice" src="images/microphone.png"/>
           <input type="text" id="voice-textbox" name="pesquisa" readonly>
           
           <div id ="animationContainer", style="text-align:center">
             <span id ="a", class="dot"></span>
             <span id ="b", class="dot"></span>
             <span id ="c", class="dot"></span>
-            <script src="animationControlPanel.js" charset="utf-8"></script>
+            <script src="controleAnimacao.js" charset="utf-8"></script>
           </div>
         </div>
     </div>
@@ -57,8 +56,6 @@
   TESTE DO JQUERY/AJAX
 -->
 
-<!--
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
@@ -66,9 +63,7 @@
     $("#produtos").hide();
   });
 </script>
-<script src='TesteAjax.js'></script>
-
--->
+<!--<script src='TesteAjax.js'></script>-->
 
 <!-- 
   TESTE DO JQUERY/AJAX
