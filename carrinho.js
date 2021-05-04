@@ -4,7 +4,6 @@ const animation = document.getElementById("animationContainer");
 const favoritos = document.getElementById("favoritos");
 const result = document.createElement("div");
 const processing = document.getElementById("voice-textbox");
-// const processing = document.getElementById("pesquisa");
 document.body.append(result);
 
 function voiceSearch() {
@@ -23,6 +22,7 @@ function stopSearch() {
     "background-color: #fff; transition: background-color 100ms linear";
 }
 
+//Função principal do reconhecedor de voz
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 let toggleBtn = null;
@@ -40,6 +40,7 @@ if (typeof SpeechRecognition === undefined) {
     const text = res[0].transcript;
     if (res.isFinal) {
       const response = process(text);
+      buscarProdutos(text);
       processing.value = `${text}`;
       console.log(text);
       // processing.innerHTML = "";
@@ -199,3 +200,19 @@ function limitePalavras(words){
   if (contador >= tamanhoMaximo)
     toggleBtn();
 }
+
+//JQUERY/AJAX
+
+/*function buscarProdutos(palavraChave) {
+  var $produtosContainer = $('#produtos');
+
+  $.ajax({
+      type: 'GET',
+      url: 'http://localhost:3000/produtos',
+      success: function(produtos){
+          $.each(produtos, function(i,item){
+              $produtosContainer.append('<li>' + item.NOME + '</li>')
+          });
+      }
+  });
+}*/

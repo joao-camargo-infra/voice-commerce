@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 var path = require('path');
 const port = 3000
+const limiteProdutos  = 5
 
 app.use(express.static(__dirname));
 
@@ -13,10 +14,17 @@ var mysql = require('mysql')
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '2A2A0b4f@'
+  password: '2A2A0b4f@',
+  database: 'base_flipkart'
 })
 
-connection.connect(console.log("Conectado à base de dados"))
+app.get('/produtos',(req,res)=>{
+  connection.query(`SELECT * FROM base_flipkart LIMIT ${limiteProdutos}`, function (err, produtos, fields) {
+    if (err) throw err;
+    //console.log(produtos);
+    res.send(produtos)
+  });
+})
 
 app.listen(port, () => {
   console.log(`Aplicação de voz ouvindo na porta http://localhost:${port}`)
