@@ -1,9 +1,12 @@
 const express = require('express')
-const app = express()
-var path = require('path');
 const port = 3000
 const limiteProdutos  = 5
+const bp = require('body-parser')
 
+const app = express()
+
+app.use(express.json({limit: '20mb'}));
+app.use(express.urlencoded({ extended: false, limit: '20mb' }));
 app.use(express.static(__dirname));
 
 app.get('/', (req, res) => {
@@ -18,10 +21,11 @@ var connection = mysql.createConnection({
   database: 'base_flipkart'
 })
 
-app.get('/produtos',(req,res)=>{
-  connection.query(`SELECT * FROM base_flipkart LIMIT ${limiteProdutos}`, function (err, produtos, fields) {
+app.post('/produtos/', function(req,res){
+  var palavraChave = req.body.busca
+  console.log(palavraChave);
+  connection.query(`SELECT * FROM base_flipkart WHERE NOME LIKE '%${palavraChave}%' LIMIT ${limiteProdutos}`, function (err, produtos, fields) {
     if (err) throw err;
-    //console.log(produtos);
     res.send(produtos)
   });
 })
@@ -29,5 +33,3 @@ app.get('/produtos',(req,res)=>{
 app.listen(port, () => {
   console.log(`Aplicação de voz ouvindo na porta http://localhost:${port}`)
 })
-
-//connection.end(console.log("Desconectando da base de dados"))

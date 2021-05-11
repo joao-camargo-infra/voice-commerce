@@ -40,7 +40,7 @@ if (typeof SpeechRecognition === undefined) {
     const text = res[0].transcript;
     if (res.isFinal) {
       const response = process(text);
-      buscarProdutos(text);
+      //buscarProdutos(text);
       processing.value = `${text}`;
       console.log(text);
       // processing.innerHTML = "";
