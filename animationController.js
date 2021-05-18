@@ -1,23 +1,22 @@
 const animationContainer = document.getElementById("animationContainer");
-animationContainer.style.visibility = "hidden";
 
-const diferenca = 5;
+const difference = 5;
 const speed = 1;
 const base = 30;
-const variacao = 10;
+const variation = 10;
 
 let a = document.getElementById("a");
 let b = document.getElementById("b");
 let c = document.getElementById("c");
 
 let contA = 0;
-let contB = diferenca;
-let contC = 2 * diferenca;
+let contB = difference;
+let contC = 2 * difference;
 
 function step() {
-  a.style.top = variacao * Math.sin((contA * Math.PI) / base) + "px";
-  b.style.top = variacao * Math.sin((contB * Math.PI) / base) + "px";
-  c.style.top = variacao * Math.sin((contC * Math.PI) / base) + "px";
+  a.style.top = variation * Math.sin((contA * Math.PI) / base) + "px";
+  b.style.top = variation * Math.sin((contB * Math.PI) / base) + "px";
+  c.style.top = variation * Math.sin((contC * Math.PI) / base) + "px";
 
   contA += speed;
   contB += speed;
