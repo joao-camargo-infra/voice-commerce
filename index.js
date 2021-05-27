@@ -24,9 +24,9 @@ var connection = mysql.createConnection({
 app.post('/produtos/', function(req,res){
   var palavraChave = req.body.busca
   console.log(palavraChave);
-  connection.query(`SELECT * FROM base_flipkart WHERE NOME LIKE '%${palavraChave}%' LIMIT ${limiteProdutos}`, function (err, produtos, fields) {
+  connection.query(`SELECT * FROM base_flipkart WHERE NOME LIKE '%${palavraChave}%' LIMIT ${limiteProdutos}`, function (err, items, fields) {
     if (err) throw err;
-    res.send(produtos)
+    res.send(items)
   });
 })
 

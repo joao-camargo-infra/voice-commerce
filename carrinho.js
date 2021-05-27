@@ -1,10 +1,12 @@
 const startBtn = document.getElementById("btn-speech");
-const produtos = document.getElementById("produtos");
-const carrinho = document.getElementById("carrinho");
-const favoritos = document.getElementById("favoritos");
 const result = document.createElement("div");
 const transcriptField = document.getElementById("voice-textbox");
 const maxWords = 5;
+
+var produtos = document.getElementById("produtos");
+var carrinho = document.getElementById("carrinho");
+var favoritos = document.getElementById("favoritos");
+
 document.body.append(result);
 
 const SpeechRecognition =
@@ -24,8 +26,11 @@ if (typeof SpeechRecognition === undefined) {
     const res = event.results[last];
     const text = res[0].transcript;
     if (res.isFinal) {
+      toggleBtn();
+      //const response = process2(text);
       const response = process(text);
       transcriptField.value = `${text}`;
+      busca(text);
       console.log(text);
       speechSynthesis.speak(new SpeechSynthesisUtterance(response));
     } else {
@@ -69,6 +74,22 @@ function wordCount(words) {
   let count = (words.match(/ /g) || []).length;
   if (count >= (maxWords - 1))
     toggleBtn();
+}
+
+function process2(rawtext){
+  let response = null;
+  let searchResults = busca(rawtext);
+  console.log(searchResults);
+  if(searchResults){
+    jQuery.each(searchResults, function(i,item){
+      produtos.appendChild(document.createTextNode(item.NOME))
+      jQuery.parseHTML
+    });
+    response = "Encontrei essas opções";
+  } else{
+    response = "Não encontrei o produto";
+  }
+  return response;
 }
 
 function process(rawText) {
@@ -173,4 +194,22 @@ function addCarrinho(prod, classname) {
   const produto = document.getElementsByClassName(classname)[0].cloneNode(true);
   carrinho.appendChild(produto);
   return `${prod} Adicionado ao carrinho`;
+}
+
+function busca(palavraChave){
+  jQuery.ajax({
+    type: 'POST',
+    url: 'http://localhost:3000/produtos/',
+    data: {
+        busca : palavraChave
+    },
+    success: function(items){
+      //console.log(items);
+      //return items;
+      jQuery.each(items, function(i,item){
+        produtos.appendChild(document.createTextNode(item.NOME))
+        jQuery.parseHTML
+      });
+    }
+  });
 }
